@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'build_pc_app',
     'login_reg_app',
     'django.contrib.admin',
     'django.contrib.auth',
