@@ -70,7 +70,10 @@
     {%for%}
     <img src="" alt="">
     <p>product name:{{}} </p>
-    <input type="text" name="" value="to change">
+    <form action="" method="post">
+        <input type="number" name="quantity" min="1" max="1" value="{{product quantity}}">
+        <input type="submit" value="add">
+    </form>
     <p>product price:{{}}</p>
     <p>product details:{{}}</p>
     {%endfor%}

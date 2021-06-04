@@ -12,28 +12,37 @@ class address(models.Model):
 
 class catagory(models.Model):
     name= models.CharField(max_length=20)
-
-
+    def __str__(self):
+        return self.name
+class brand(models.Model):
+    name= models.CharField(max_length=20)
+    catbrand= models.ForeignKey(catagory,related_name="brands",on_delete=CASCADE)
+    def __str__(self):
+        return self.name
 class product(models.Model):
     name= models.CharField(max_length=200)
-    brand = models.CharField(max_length=200)
     desc = models.TextField()
     price = models.IntegerField()
     build_pc =models.ManyToManyField(users,through= 'cart')
     stock =models.IntegerField()
-    categ = models.ForeignKey(catagory,related_name='prodtype',on_delete= CASCADE)
+    categ = models.ForeignKey(brand,related_name='prodtype',on_delete= CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    def __str__(self):
+        return self.name
 
 
 class status(models.Model):
     status= models.CharField(max_length=15)
-      
+    def __str__(self):
+        return self.status
+     
 
 class order(models.Model):
     order_date= models.DateField(auto_now_add=True)
     order_price= models.IntegerField()
     status=models.ForeignKey(status,related_name="stat",on_delete=CASCADE)
+
 
 class cart(models.Model):
     users_id=models.ForeignKey(users,on_delete=CASCADE)
@@ -43,12 +52,15 @@ class cart(models.Model):
     quantity=models.IntegerField()
 
 
+
 class troublshooting(models.Model):
     name=models.CharField(max_length=200) #name of problem
     desc = models.TextField()
     phone = models.CharField(max_length=200)
     order_id=models.ForeignKey(order,related_name="troubleshoot",on_delete=CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
+    def __str__(self):
+        return self.name
 
 
 

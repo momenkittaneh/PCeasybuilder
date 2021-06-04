@@ -1,216 +1,414 @@
-<!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        body{
-	margin:0;
-	color:#6a6f8c;
-	background:#c8c8c8;
-	font:600 16px/18px 'Open Sans',sans-serif;
-}
-*,:after,:before{box-sizing:border-box}
-.clearfix:after,.clearfix:before{content:'';display:table}
-.clearfix:after{clear:both;display:block}
-a{color:inherit;text-decoration:none}
 
-.login-wrap{
-	width:100%;
-	margin:auto;
-	max-width:525px;
-	min-height:670px;
-	position:relative;
-	background:url(https://raw.githubusercontent.com/khadkamhn/day-01-login-form/master/img/bg.jpg) no-repeat center;
-	box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
-}
-.login-html{
-	width:100%;
-	height:100%;
-	position:absolute;
-	padding:90px 70px 50px 70px;
-	background:rgba(40,57,101,.9);
-}
-.login-html .sign-in-htm,
-.login-html .sign-up-htm{
-	top:0;
-	left:0;
-	right:0;
-	bottom:0;
-	position:absolute;
-	transform:rotateY(180deg);
-	backface-visibility:hidden;
-	transition:all .4s linear;
-}
-.login-html .sign-in,
-.login-html .sign-up,
-.login-form .group .check{
-	display:none;
-}
-.login-html .tab,
-.login-form .group .label,
-.login-form .group .button{
-	text-transform:uppercase;
-}
-.login-html .tab{
-	font-size:22px;
-	margin-right:15px;
-	padding-bottom:5px;
-	margin:0 15px 10px 0;
-	display:inline-block;
-	border-bottom:2px solid transparent;
-}
-.login-html .sign-in:checked + .tab,
-.login-html .sign-up:checked + .tab{
-	color:#fff;
-	border-color:#1161ee;
-}
-.login-form{
-	min-height:345px;
-	position:relative;
-	perspective:1000px;
-	transform-style:preserve-3d;
-}
-.login-form .group{
-	margin-bottom:15px;
-}
-.login-form .group .label,
-.login-form .group .input,
-.login-form .group .button{
-	width:100%;
-	color:#fff;
-	display:block;
-}
-.login-form .group .input,
-.login-form .group .button{
-	border:none;
-	padding:15px 20px;
-	border-radius:25px;
-	background:rgba(255,255,255,.1);
-}
-.login-form .group input[data-type="password"]{
-	text-security:circle;
-	-webkit-text-security:circle;
-}
-.login-form .group .label{
-	color:#aaa;
-	font-size:12px;
-}
-.login-form .group .button{
-	background:#1161ee;
-}
-.login-form .group label .icon{
-	width:15px;
-	height:15px;
-	border-radius:2px;
-	position:relative;
-	display:inline-block;
-	background:rgba(255,255,255,.1);
-}
-.login-form .group label .icon:before,
-.login-form .group label .icon:after{
-	content:'';
-	width:10px;
-	height:2px;
-	background:#fff;
-	position:absolute;
-	transition:all .2s ease-in-out 0s;
-}
-.login-form .group label .icon:before{
-	left:3px;
-	width:5px;
-	bottom:6px;
-	transform:scale(0) rotate(0);
-}
-.login-form .group label .icon:after{
-	top:6px;
-	right:0;
-	transform:scale(0) rotate(0);
-}
-.login-form .group .check:checked + label{
-	color:#fff;
-}
-.login-form .group .check:checked + label .icon{
-	background:#1161ee;
-}
-.login-form .group .check:checked + label .icon:before{
-	transform:scale(1) rotate(45deg);
-}
-.login-form .group .check:checked + label .icon:after{
-	transform:scale(1) rotate(-45deg);
-}
-.login-html .sign-in:checked + .tab + .sign-up + .tab + .login-form .sign-in-htm{
-	transform:rotate(0);
-}
-.login-html .sign-up:checked + .tab + .login-form .sign-up-htm{
-	transform:rotate(0);
+  <meta charset="UTF-8">
+  
+<link rel="apple-touch-icon" type="image/png" href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png" />
+<meta name="apple-mobile-web-app-title" content="CodePen">
+
+<link rel="shortcut icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" />
+
+<link rel="mask-icon" type="" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111" />
+
+
+  <title>CodePen - Login/Signup Form With Slider</title>
+  
+  
+  <link rel='stylesheet' href='https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css'>
+  
+<style>
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,700');
+
+
+
+/************ Start Main Rules **************/
+*{
+  margin: 0;
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
+/*   font-family: 'Roboto', sans-serif; */font-family: 'Raleway', sans-serif;
 }
 
-.hr{
-	height:2px;
-	margin:60px 0 50px 0;
-	background:rgba(255,255,255,.2);
+body{background: #191919  }
+
+.main-box{
+  position: relative;
+  display: block;
+  width: 90%;
+  height: 700px;
+  margin: 50px auto;
+  border-radius: 8px;
+  overflow: hidden;
+  background:linear-gradient(to right, #232f41, #374a62);
 }
-.foot-lnk{
-	text-align:center;
+
+.lined-link{
+  position: relative;
+  text-decoration: none;
+  transition: all 0.2s linear
 }
-    </style>
+
+.lined-link:hover{
+  opacity: 0.5
+}
+
+.lined-link:after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  left: 0;
+  bottom: -2px;
+  border: none;
+  border-bottom: 1px solid #63d5c4;
+}
+
+/************ Start Slider Container **************/
+.slider-cont,
+.form-cont{
+  width: 50%;
+  height: 100%;
+  float: left;
+}
+
+.slick-slide,
+.slick-slider{
+  width: 100%;
+  height: 100% 
+}
+
+.clear-fix{
+  clear: both;
+}
+
+.slick-dots {
+  position: absolute;
+  bottom: 10px;
+  display: block;
+  width: 100%;
+  padding: 0;
+  list-style: none;
+  text-align: center;
+}
+
+.slick-dots li {
+  position: relative;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin: 0 3px;
+  padding: 0;
+  cursor: pointer;
+}
+.slick-dots li button {
+  font-size: 0;
+  display: block;
+  width: 10px;
+  height: 10px;
+  padding: 5px;
+  cursor: pointer;
+  border: 0;
+  outline: none;
+  background: #8dffea;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.slick-dots li.slick-active button{
+  background-color: #53C5B9;
+  transform: scale(1.6);
+  box-shadow: 0 0 10px #1b1b1b
+}
+
+.img-txt{
+  position: relative;
+}
+
+.img-layer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(47, 63, 85, 0.53);
+}
+
+.img-txt h1{
+  position: absolute;
+  display: block;
+  top: 50%;
+  color: #fff;
+  width: 100%;
+  padding: 50px 0;
+  font-size: 45px;
+  font-weight: 100;
+  text-align: center;
+  transform: translateY(-50%);
+  background-color: transparent;
+}
+
+/************ Start Form Container **************/
+
+.top-buttons {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 15%;
+  padding: 25px;
+  text-align: right;
+}
+
+.top-buttons button {
+  color: #cacaca;
+  border: none;
+  width: 90px;
+  margin: -2px;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: 300;
+  background: #4c5c72;
+  cursor: pointer;
+}
+
+.top-buttons button:nth-child(1) {
+  border-radius: 50px 0 0 50px;
+}
+
+.top-buttons button:nth-child(2) {
+  border-radius: 0 50px 50px 0;
+}
+
+.top-active-button {
+  color: #fff !important;
+  box-shadow: 0 0 20px #2a2a2a;
+  background: linear-gradient(#68dac7,#54c7ba) !important;
+  transition: all 0.3s ease;
+}
+
+.form{
+  width: 100%;
+  height: 85%;
+  padding: 10px 40px;
+}
+
+.form form {
+  width: 100%;
+  height: 100%;
+}
+
+.form form 
+lable,
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  display: block;
+}
+
+.form form lable {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 300;
+  margin: 6px 0;
+}
+
+p.terms {
+  color: #9E9E9E;
+  margin-bottom: 60px;
+}
+
+.form form 
+input[type="text"],
+input[type="email"], 
+input[type="password"] {
+  color: #fff;
+  width: 100%;
+  border: none;
+  font-size: 16px;
+  font-weight: 200;
+  margin-bottom: 45px;
+  padding: 5px 0 10px 0;
+  background: transparent;
+  border-bottom: 1px solid #4c5c72;
+}
+
+.form form input::placeholder{
+  color: #cecece;
+}
+
+.form form a {
+  color: #fff;
+}
+
+input.form-btn {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 300;
+  padding: 12px 55px;
+  margin-right: 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 35px;
+  transition: all 0.3s linear;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.55);
+  background: linear-gradient(to right, #5bcdbe,#41ab9e);
+}
+
+input.form-btn:hover{
+  box-shadow: none
+}
+
+.form-signin{
+  display: none;
+  padding-top: 120px;
+}
+</style>
+
+  <script>
+  window.console = window.console || function(t) {};
+</script>
+
+  
+  
+  <script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage("resize", "*");
+  }
+</script>
+
+
 </head>
-<body>
-    <div class="login-wrap">
-        <div class="login-html">
-            <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
-            <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
-            <div class="login-form">
-                <div class="sign-in-htm">
-                    <div class="group">
-                        <label for="user" class="label">Email</label>
-                        <input id="user" type="text" class="input">
-                    </div>
-                    <div class="group">
-                        <label for="pass" class="label">Password</label>
-                        <input id="pass" type="password" class="input" data-type="password">
-                    </div>
-                    <div class="group">
-                    </div>
-                    <div class="group">
-                        <input type="submit" class="button" value="Sign In">
-                    </div>
-                    <div class="hr"></div>
 
-                </div>
-                <div class="sign-up-htm">
-                    <div class="group">
-                        <label for="user" class="label">first name</label>
-                        <input id="user" type="text" class="input">
-                        <label for="user" class="label">last name</label>
-                        <input id="user" type="text" class="input">
-
-                    </div>
-                    <div class="group">
-                        <label for="pass" class="label">Password</label>
-                        <input id="pass" type="password" class="input" data-type="password">
-                    </div>
-                    <div class="group">
-                        <label for="pass" class="label">Repeat Password</label>
-                        <input id="pass" type="password" class="input" data-type="password">
-                    </div>
-                    <div class="group">
-                        <label for="pass" class="label">Email Address</label>
-                        <input id="pass" type="text" class="input">
-                    </div>
-                    <div class="group">
-                        <input type="submit" class="button" value="Sign Up">
-                    </div>
-                    <div class="hr"></div>
-                    <div class="foot-lnk">
-                        <label for="tab-1">Already Member?</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+<body translate="no" >
+  <div class="main-box">
+  <div class="slider-cont">
+    <div class="signup-slider">
+      <div class="img-txt">
+        <div class="img-layer"></div>
+        <h1>it's easier to you</h1>
+        <img src="https://c1.wallpaperflare.com/preview/718/665/272/people-man-laptop-mac.jpg"/>
+      </div>
+      <div class="img-txt">
+        <div class="img-layer"></div>
+        <h1>we build it for you</h1>
+        <img src="https://c0.wallpaperflare.com/preview/903/417/183/pc-build-computer-technology.jpg"/>
+      </div>
+      <div class="img-txt">
+        <div class="img-layer"></div>
+        <h1>Join US Now!</h1>
+        <img src="https://c4.wallpaperflare.com/wallpaper/824/432/34/3840x2400-px-asus-asus-rog-computer-hardware-motherboards-pc-gaming-republic-of-gaming-technology-wa-people-michael-jordan-hd-art-wallpaper-preview.jpg"/>
+      </div>
     </div>
+  </div>
+  
+  
+  <div class="form-cont">
+
+    <div class="top-buttons">
+      <button class="to-signup top-active-button">
+        Sign Up
+      </button>
+      <button class="to-signin">
+        Sign In
+      </button>
+    </div>
+    
+    <div class="form form-signup">
+      <form action="#">
+        <lable>FULL NMAE</lable>
+        <input type="text" 
+               placeholder="Your full name">
+        <lable>E-MAIL</lable>
+        <input type="email" 
+               placeholder="Your e-mail">
+        <lable>PASSWORD</lable>
+        <input type="password" 
+               placeholder="Your password">
+        <p class="terms">
+          <input type="checkbox">
+          I agree all statments in 
+          <a href="#" class="lined-link">terms of service</a>
+        </p>
+        <input type="submit"
+               class="form-btn"
+               value="Sign Up"/>
+        <br><br>
+        <a href="#" class="lined-link to-signin-link">I'm already member</a>
+      </form>
+    </div>
+
+    <div class="form form-signin">
+      <form action="#">
+        <lable>E-MAIL</lable>
+        <input type="email" 
+               placeholder="Your e-mail">
+        <lable>PASSWORD</lable>
+        <input type="password" 
+               placeholder="Your password">
+        <input type="submit"
+               class="form-btn"
+               value="Sign In"/>
+        <br><br>
+        <a href="#" class="lined-link to-signup-link">Create new account</a>
+      </form>
+    </div>
+  </div>
+  <div class="clear-fix"></div>
+</div>
+    <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-8216c69d01441f36c0ea791ae2d4469f0f8ff5326f00ae2d00e4bb7d20e24edb.js"></script>
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+<script src='https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js'></script>
+      <script id="rendered-js" >
+$(document).ready(function () {
+  $('.signup-slider').slick({
+    dots: true,
+    arrows: false,
+    autoplay: true,
+    autoplaySpeed: 2000 });
+
+
+  $("img").height($(".main-box").height());
+
+  $(".to-signin").on("click", function () {
+    $(this).
+    addClass("top-active-button").
+    siblings().
+    removeClass("top-active-button");
+    $(".form-signup").slideUp(500);
+    $(".form-signin").slideDown(500);
+  });
+
+  $(".to-signup").on("click", function () {
+    $(this).
+    addClass("top-active-button").
+    siblings().
+    removeClass("top-active-button");
+    $(".form-signin").slideUp(500);
+    $(".form-signup").slideDown(500);
+  });
+
+  $(".to-signin-link").on("click", function () {
+    $(".to-signin").
+    addClass("top-active-button").
+    siblings().
+    removeClass("top-active-button");
+    $(".form-signup").slideUp(200);
+    $(".form-signin").slideDown(200);
+  });
+
+  $(".to-signup-link").on("click", function () {
+    $(".to-signup").
+    addClass("top-active-button").
+    siblings().
+    removeClass("top-active-button");
+    $(".form-signin").slideUp(200);
+    $(".form-signup").slideDown(200);
+  });
+});
+//# sourceURL=pen.js
+    </script>
+
+  
+
 </body>
+
 </html>
