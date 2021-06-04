@@ -55,6 +55,38 @@
     </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<div class="troubleshoot"> 
+
+    <form action='/reg' method="POST">
+
+        {% csrf_token %}
+        <br>
+        <label for="first_name">Name:</label>
+        <input type="text" name="first_name">
+        <br><br>
+        <label for="">Phone Number:</label>
+        <input type="text" name="Phone number">
+        <br><br>
+        
+        <select id="lang" name="lang">
+        <option value="Java">Java</option>
+        <option value="Python">Python</option>
+        <option value="C++">C++</option>
+        </select>
+        <br><br>
+        <input type="radio" id="broken" name="problem" value="broken">
+        <label for="broken">broken</label><br>
+        <input type="radio" id="damaged" name="problem" value="damaged">
+        <label for="damaged">damaged</label><br>
+        <input type="radio" id="shipment delayed" name="problem" value="shipment delayed">
+        <label for="hipment delayed">hipment delayed</label>
+        <br><br>
+        <label for="hipment delayed">desc</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        <br><br>
+        <button type="submit">submit</button>
+    </form>
+    </div>
 
 </body>
 </html>
