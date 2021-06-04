@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0 auto;
+            padding: 0 auto;
+        }
+        .myprofie{
+            width: 30%;
+            height: 30%;
+        }
+        .my_address{
+            width: 60%;
+            display: flex;
+        }
+        .add_address{
+            width: 30%;
+        }
+        .my_trouble{
+            width: 50%;
+        }
+        footer{
+            width: 100%;
+            display: flex;
+        }
+        .our_map
+        { width: 10%;}
+        .about_us{width: 10%;}
+        .contact{width: 10%;}
+    </style>
+</head>
+<body>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">    
+    <div class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+    
+                        <div class="navbar-header">
+                            <button class="navbar-toggle" data-target="#mobile_menu" data-toggle="collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+                            <a href="#" class="navbar-brand">easybuild</a>
+                        </div>
+    
+                        <div class="navbar-collapse collapse" id="mobile_menu">
+                            <ul class="nav navbar-nav">
+                                <li ><a href="#">Home</a></li>
+    
+                                <li><a href="#">order</a></li>
+                                <li><a href="#">mybuild</a></li>
+                                <li><a href="#">troubleshoot</a></li>
+                            </ul>
+                            <ul class="nav navbar-nav">
+                                <li>
+                                    <form action="" class="navbar-form">
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <input type="search" name="search" id="" placeholder="Search Anything Here..." class="form-control">
+                                                <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </li>
+                            </ul>
+    
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a href="#"  class="active"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+                                <li><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-log-in"></span> Login / Sign Up <span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">Login</a></li>
+                                        <li><a href="#">Sign Up</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <div class="myprofile">
+        {{user name}}
+        {{user Email}}
+        {{user phone number}}
+    </div>
+    <div class="my_address">
+        {%for%}
+        <div>
+        {{address state}}<br>
+        {{address city}}<br>
+        {{address street}}<br>
+        </div>
+        {%endfor%}
+
+    </div>
+    <div class="add_address">
+        <form action="" method="post">
+            <label for="state">state</label>
+            <input type="text" name="state" id="state"><br>
+            <label for="">city</label>
+            <input type="text" name="city" id="city"><br>
+            <label for="">street</label>
+            <input type="text" name="street" id="street"><br>
+            <input type="submit" value="add address">
+        </form>
+    </div>
+
+    <div class="my_trouble">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">problem</th>
+                <th scope="col">statues</th>
+                <th scope="col">action</th>
+              </tr>
+            </thead>
+            <tbody>
+                {%for%}
+                <tr>
+                    <th scope="row">{{loop.counter}}</th>
+                    <td>{{problem name}}</td>
+                    <td>{{problem statues}}</td>
+                    <td><a href="">details</a></td>
+                </tr>
+                {%endfor%}
+            </tbody>
+            </table>
+    </div>
+    <footer>
+        <div class="contact">
+            <p>our address</p>
+            <p>city</p>
+            <p>street</p>
+            <p>phone no</p>
+        </div>
+        <div class="about_us">
+            <p>text</p>
+            <p>text</p>
+            <p>text</p>
+        </div>
+        <div class="our_map">
+            <p>site map</p>
+            <p><a href="">home</a></p>
+            <p><a href="">order</a></p>
+            <p><a href="">troubleshoot</a></p>
+            <p><a href="">profile</a></p>
+        </div>
+    
+</body>
+</html>
