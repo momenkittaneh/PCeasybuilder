@@ -1,0 +1,26 @@
+*{
+    margin: 0 auto;
+    padding: 0 auto;
+}
+.myprofie{
+    width: 30%;
+    height: 30%;
+}
+.my_address{
+    width: 60%;
+    display: flex;
+}
+.add_address{
+    width: 30%;
+}
+.my_trouble{
+    width: 50%;
+}
+footer{
+    width: 100%;
+    display: flex;
+}
+.our_map
+{ width: 10%;}
+.about_us{width: 10%;}
+.contact{width: 10%;}

@@ -5,53 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/troublesshoot.css') }}">
     
 </head>
-<style> 
-form{
-    width: 50%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 3%;
-}
-.troubleshoot{
-    margin:10px;
-}
-
-.label1{
-    width: 120px;
-
-}
-.input1{
-    border-radius: 10px;
-}
-.navbar navbar-inverse{
-    background-color: blue ; 
-}
-
-.form-select {
-    display: block;
-    width: 18%;
-    padding: .375rem 2.25rem .375rem .75rem;
-    font-size: 2rem;
-    font-weight: 400;
-    line-height: 1.5;
-    color: #212529;
-    background-color: #fff;
-    background-image: url(data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e);
-    background-repeat: no-repeat;
-    background-position: right .75rem center;
-    background-size: 16px 12px;
-    border: 1px solid #ced4da;
-    border-radius: .25rem;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-}
-</style>
 <body>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">    
+    
 <div class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="row">
@@ -128,7 +87,7 @@ form{
         <div class="form-group">
             <label for="Description">Description</label>
             <textarea class="form-control" id="Description" rows="3" ></textarea>
-          </div>
+        </div>
         <br><br>
         
         

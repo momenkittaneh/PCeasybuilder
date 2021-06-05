@@ -5,34 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        *{
-            margin: 0 auto;
-            padding: 0 auto;
-        }
-        .myprofie{
-            width: 30%;
-            height: 30%;
-        }
-        .my_address{
-            width: 60%;
-            display: flex;
-        }
-        .add_address{
-            width: 30%;
-        }
-        .my_trouble{
-            width: 50%;
-        }
-        footer{
-            width: 100%;
-            display: flex;
-        }
-        .our_map
-        { width: 10%;}
-        .about_us{width: 10%;}
-        .contact{width: 10%;}
-    </style>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/profile.css') }}">
+    
 </head>
 <body>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">    
