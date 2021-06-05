@@ -75,39 +75,15 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <div class="order">
-    {%for%}
+        {{orddetail.order_date}}
+    {%for myorder in orddetail%}
         <div class="order_details">
-            <p>{{product name}}</p>
-            <p>{{product quantity}}</p>
-            <p>{{product price}}</p>
+            <p>{{myorder.productorder.name}}</p>
+            <p>{{myorder.order_price}}</p>
         </div>
     {%endfor%}
     </div>
-    <div class="ship_address">
-        <p>{{address state}}</p>
-        <p>{{address city}}</p>
-        <p>{{address street}}</p>
-    </div>
     <footer>
-        <div class="contact">
-            <p>our address</p>
-            <p>city</p>
-            <p>street</p>
-            <p>phone no</p>
-        </div>
-        <div class="about_us">
-            <p>text</p>
-            <p>text</p>
-            <p>text</p>
-        </div>
-        <div class="our_map">
-            <p>site map</p>
-            <p><a href="">home</a></p>
-            <p><a href="">order</a></p>
-            <p><a href="">troubleshoot</a></p>
-            <p><a href="">profile</a></p>
-        </div>
-    </footer>
     <div class='between'></div>
     <footer class='foot'>
         <!-- Site footer -->

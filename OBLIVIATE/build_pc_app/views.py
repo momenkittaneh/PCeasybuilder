@@ -1,4 +1,3 @@
-from OBLIVIATE.login_reg_app.models import get_user
 from django.http import request
 from django.shortcuts import redirect, render
 from .models import *
@@ -22,6 +21,7 @@ def viewcart(request):
 
 
 def makeorder(request):
+
     return redirect('/confirmorder')
 
 def confirm(request):
@@ -50,7 +50,6 @@ def proddetails(request,id):
     }
     return render(request,'details.html',context)
 
-<<<<<<< HEAD
 def myprofile(request):
     context ={
         'log':True,
@@ -61,15 +60,17 @@ def myprofile(request):
 def addaddress(request,id):
     add = addnewaddress(id,request.post['state'],request.post['city'],request.post['street'])
     return redirect('/profile')
-=======
-def order_view(request,id):
+def order_view(request):
     context={
-        'orders':get_order(id)
+        'orders':get_order(request.session['user_id'])
     }
     return render(request,'order.html',context)
 
-    
-<<<<<<< HEAD
->>>>>>> b8396824de2f47a231faf9eb2ca7735bbc0c3cf4
-=======
->>>>>>> bd557ade5c526d87de08807806005280e7fd8b8a
+def addquantity(request,id):
+    cart = update_quantity(id,request.POST['quantity'])
+    return redirect('/cart')
+
+def show_details(request,id):
+    context = {
+        'orddetail' : get_order_details(id)
+    }

@@ -5,8 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    {% load static %}
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/details.css') }}">
     <link rel="stylesheet" href="/static/css/details.css">
 
 </head>
@@ -61,11 +59,9 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <div class="product_detail">
-    <img src="" alt="">
-    {{product image}}
-    {{product name}}
-    {{product price}}
-    {{product description}}
+    {{det.name}}
+    {{det.price}}
+    {{det.desc}}
   </div>
 </main>
 <div class='between'>

@@ -61,37 +61,19 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <div class="cart">
     <form action="/makeorder" method="post">
-    {%for%}
+    {%for all in myitems%}
     <img src="" alt="">
-    <p>product name:{{}} </p>
-    <form action="" method="post">
-        <input type="number" name="quantity" min="1" max="1" value="{{product quantity}}">
+    <p>product name:{{all.product_id.name}} </p>
+    <form action="/addquantity/{{all.id}}" method="post">
+        <input type="number" name="quantity" min="1" max="10" value="{{all.quantity}}">
         <input type="submit" value="add">
     </form>
-    <p>product price:{{}}</p>
-    <p>product details:{{}}</p>
+    <p>product price:{{all.product_id.price * all.quantity}}</p>
+    <p>product details:{{all.product_id.desc}}</p>
     {%endfor%}
     </form>
 </div>
 <footer>
-    <div class="contact">
-        <p>our address</p>
-        <p>city</p>
-        <p>street</p>
-        <p>phone no</p>
-    </div>
-    <div class="about_us">
-        <p>text</p>
-        <p>text</p>
-        <p>text</p>
-    </div>
-    <div class="our_map">
-        <p>site map</p>
-        <p><a href="">home</a></p>
-        <p><a href="">order</a></p>
-        <p><a href="">troubleshoot</a></p>
-        <p><a href="">profile</a></p>
-    </div>
     <div class='between'></div>
     <footer class='foot'>
         <!-- Site footer -->

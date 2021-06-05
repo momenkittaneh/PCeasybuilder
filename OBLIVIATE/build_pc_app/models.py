@@ -77,8 +77,8 @@ class troublshooting(models.Model):
 def get_products():
     return product.objects.all()
 
-def get_order(id_user):
-    user=users.objects.get(id=id_user)
+def get_order(user_id):
+    user=users.objects.get(id=user_id)
     ord=order.objects.filter(user_order=user)
     return ord
 
@@ -98,11 +98,17 @@ def view_cart(id):
 def get_product(id):
     prod = product.objects.get(id=id)
     return prod
-<<<<<<< HEAD
 
 def addnewaddress(id,state,city,street):
     user = users.objects.get(id=id)
     adres = address.objects.create(state=state,city=city,street=street,user_id=user)
     return adres
-=======
->>>>>>> b8396824de2f47a231faf9eb2ca7735bbc0c3cf4
+
+def update_quantity(id,quantity):
+    newcart= cart.objects.get(id=id)
+    newcart.quantity= quantity
+    newcart.save()
+    return newcart
+
+def get_order_details(id):
+    return order.object.get(id=id)

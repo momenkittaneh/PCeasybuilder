@@ -7,12 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     {% load static %}
-<<<<<<< HEAD
     <link rel="stylesheet" href="{% static 'css//home.css' %}">
-=======
+
     
     <link rel="stylesheet" href="{% static 'css/home.css' %}"> 
->>>>>>> b8396824de2f47a231faf9eb2ca7735bbc0c3cf4
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
         crossorigin="anonymous"></script>
@@ -36,7 +34,6 @@
 </script>
 
 <body>
-    {% csrf_token %}
     <h1></h1>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <div class="navbar navbar-inverse">
@@ -55,8 +52,8 @@
                         <ul class="nav navbar-nav">
                             <li class="active"><a href="/">Home</a></li>
 
-                            <li><a href="/order/{{request.session.id}}">order</a></li>
-                            <li><a href="/mybulid/{{request.session.id}}">mybuild</a></li>
+                            <li><a href="/order">order</a></li>
+                            <li><a href="/cart">mybuild</a></li>
                             <li><a href="/troubeshoot/{{request.session.id}}">troubleshoot</a></li>
                         </ul>
                         <ul class="nav navbar-nav">
@@ -122,71 +119,14 @@
         </div>
 
         <div class="product">
+            {%for prod in product%}
             <div class="product1">
-                <img  src="https://support.content.office.net/ar-sa/media/e8384959-ad1a-1b95-762b-2861496b886e.png" alt="paython" />
-                <h4><a></a>Microsoft Bluetooth mouse</h4>
-                <p></p>
-            </div>
-            <div class="product1">
-                <img  src="https://support.content.office.net/ar-sa/media/e8384959-ad1a-1b95-762b-2861496b886e.png" alt="paython" />
-                <h4>Microsoft Bluetooth mouse</h4>
-                <p>40$</p>
-            </div>
-            <div class="product1">
-                <img  src="https://support.content.office.net/ar-sa/media/e8384959-ad1a-1b95-762b-2861496b886e.png" alt="paython" />
-                <h4>Microsoft Bluetooth mouse</h4>
-                <p>40$</p>
-            </div>
-            <div class="product1">
-                <img  src="https://support.content.office.net/ar-sa/media/e8384959-ad1a-1b95-762b-2861496b886e.png" alt="paython" />
-                <h4>Microsoft Bluetooth mouse</h4>
-                <p>40$</p>
-            </div>
-            <div class="product1">
-                <img  src="https://support.content.office.net/ar-sa/media/e8384959-ad1a-1b95-762b-2861496b886e.png" alt="paython" />
-                <h4>Microsoft Bluetooth mouse</h4>
-                <p>40$</p>
-            </div>
-            <div class="product1">
-                <img  src="https://support.content.office.net/ar-sa/media/e8384959-ad1a-1b95-762b-2861496b886e.png" alt="paython" />
-                <h4>Microsoft Bluetooth mouse</h4>
-                <p>40$</p>
+                <h4><a href="/details/{{prod.id}}">{{prod.name}}</a></h4>
+                <p>{{prod.price}}$</p>
             </div>
 
-            <div class="product1">
-                <img  src="https://support.content.office.net/ar-sa/media/e8384959-ad1a-1b95-762b-2861496b886e.png" alt="paython" />
-                <h4>Microsoft Bluetooth mouse</h4>
-                <p>40$</p>
+            {%endfor%}
             </div>
-            <div class="product1">
-                <img  src="https://support.content.office.net/ar-sa/media/e8384959-ad1a-1b95-762b-2861496b886e.png" alt="paython" />
-                <h4>Microsoft Bluetooth mouse</h4>
-                <p>40$</p>
-            </div>
-            <div class="product1">
-                <img  src="https://support.content.office.net/ar-sa/media/e8384959-ad1a-1b95-762b-2861496b886e.png" alt="paython" />
-                <h4>Microsoft Bluetooth mouse</h4>
-                <p>40$</p>
-            </div>
-            <div class="product1">
-                <img  src="https://support.content.office.net/ar-sa/media/e8384959-ad1a-1b95-762b-2861496b886e.png" alt="paython" />
-                <h4>Microsoft Bluetooth mouse</h4>
-                <p>40$</p>
-            </div>
-
-            <div class="product1">
-                <img  src="https://support.content.office.net/ar-sa/media/e8384959-ad1a-1b95-762b-2861496b886e.png" alt="paython" />
-                <h4>Microsoft Bluetooth mouse</h4>
-                <p></p>
-            </div>
-            <div class="product1">
-                <img  src="https://support.content.office.net/ar-sa/media/e8384959-ad1a-1b95-762b-2861496b886e.png" alt="paython" />
-                <h4>Microsoft Bluetooth mouse</h4>
-                <p></p>
-            </div>
-
-
-        </div>
         <div class='between'></div>
     </div>
 

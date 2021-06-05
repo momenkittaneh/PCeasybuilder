@@ -28,7 +28,7 @@ def register(request):
         request.session['last_name'] = user.last_name
     return redirect('/')
 def login(request):
-    user = login_user(request.post['email'])
+    user = login_user(request.POST['email'])
     if user: 
         logged_user = user[0] 
         if bcrypt.checkpw(request.POST['password'].encode(), logged_user.password.encode()):
