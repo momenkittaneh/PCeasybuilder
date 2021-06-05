@@ -5,5 +5,8 @@ urlpatterns = [
     path('', views.home),
     path('makeorder',views.makeorder),
     path('confirmorder',views.confirm),
-    path('confirm',views.ok)
+    path('confirm',views.ok),
+    path('cart',views.mycart),
+    path('details/<int:id>',views.proddetails),
+    
 ]

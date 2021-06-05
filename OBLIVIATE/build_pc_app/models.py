@@ -85,4 +85,11 @@ def create_order(id):
     return ord
 
 
-    
+def view_cart(id):
+    user= users.objects.get(id=id)
+    return user.mycart.all()
+
+
+def get_product(id):
+    prod = product.objects.get(id=id)
+    return prod

@@ -23,7 +23,7 @@ def register(request):
         pw_hash = bcrypt.hashpw(password.encode(), bcrypt.gensalt()).decode()
         user = create_user(first_name,last_name,email,pw_hash)
     if user:
-        request.session['id'] = user.id
+        request.session['user_id'] = user.id
         request.session['first_name'] = user.first_name
         request.session['last_name'] = user.last_name
     return redirect('/')
@@ -32,7 +32,7 @@ def login(request):
     if user: 
         logged_user = user[0] 
         if bcrypt.checkpw(request.POST['password'].encode(), logged_user.password.encode()):
-            request.session['id'] = logged_user.id
+            request.session['user_id'] = logged_user.id
             request.session['first_name'] = logged_user.first_name
             request.session['last_name'] = logged_user.last_name
 
