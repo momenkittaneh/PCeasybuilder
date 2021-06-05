@@ -69,4 +69,7 @@ def order_view(request,id):
     return render(request,'order.html',context)
 
     
+<<<<<<< HEAD
 >>>>>>> b8396824de2f47a231faf9eb2ca7735bbc0c3cf4
+=======
+>>>>>>> bd557ade5c526d87de08807806005280e7fd8b8a
