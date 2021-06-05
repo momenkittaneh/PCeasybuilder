@@ -7,10 +7,12 @@ def home(request):
     if 'user_id' in request.session:
         context= {
             'log' : True,
-            'getprof': get_user(request.session['user_id'])
+            'getprof': get_user(request.session['user_id']),
+            'product':get_products()
         }
         return render(request,"home.html",context)
-    return render(request,"home.html")
+    context={'product':get_products()}
+    return render(request,"home.html",context)
 
 def viewcart(request):
     context={
@@ -48,6 +50,7 @@ def proddetails(request,id):
     }
     return render(request,'details.html',context)
 
+<<<<<<< HEAD
 def myprofile(request):
     context ={
         'log':True,
@@ -58,3 +61,12 @@ def myprofile(request):
 def addaddress(request,id):
     add = addnewaddress(id,request.post['state'],request.post['city'],request.post['street'])
     return redirect('/profile')
+=======
+def order_view(request,id):
+    context={
+        'orders':get_order(id)
+    }
+    return render(request,'order.html',context)
+
+    
+>>>>>>> b8396824de2f47a231faf9eb2ca7735bbc0c3cf4
