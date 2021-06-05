@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     {% load static %}
+    
+    <link rel="stylesheet" href="{% static 'css/home.css' %}"> 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
         crossorigin="anonymous"></script>
@@ -30,6 +32,8 @@
 </script>
 
 <body>
+    {% csrf_token %}
+    <h1></h1>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <div class="navbar navbar-inverse">
         <div class="container-fluid">
@@ -40,16 +44,16 @@
                         <button class="navbar-toggle" data-target="#mobile_menu" data-toggle="collapse"><span
                                 class="icon-bar"></span><span class="icon-bar"></span><span
                                 class="icon-bar"></span></button>
-                        <a href="#" class="navbar-brand">easybuild</a>
+                        <a href="/" class="navbar-brand">easybuild</a>
                     </div>
 
                     <div class="navbar-collapse collapse" id="mobile_menu">
                         <ul class="nav navbar-nav">
-                            <li class="active"><a href="#">Home</a></li>
+                            <li class="active"><a href="/">Home</a></li>
 
-                            <li><a href="#">order</a></li>
-                            <li><a href="#">mybuild</a></li>
-                            <li><a href="#">troubleshoot</a></li>
+                            <li><a href="/order/{{request.session.id}}">order</a></li>
+                            <li><a href="/mybulid/{{request.session.id}}">mybuild</a></li>
+                            <li><a href="/troubeshoot/{{request.session.id}}">troubleshoot</a></li>
                         </ul>
                         <ul class="nav navbar-nav">
                             <li>

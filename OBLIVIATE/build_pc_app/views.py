@@ -5,10 +5,12 @@ def home(request):
     if 'user_id' in request.session:
         context= {
             'log' : True,
-            'getprof': get_user(request.session['user_id'])
+            'getprof': get_user(request.session['user_id']),
+            'product':get_products()
         }
         return render(request,"home.html",context)
-    return render(request,"home.html")
+    context={'product':get_products()}
+    return render(request,"home.html",context)
 
 def viewcart(request):
     context={
@@ -45,4 +47,11 @@ def proddetails(request,id):
         'det' : get_product(id)
     }
     return render(request,'details.html',context)
+
+def order_view(request,id):
+    context={
+        'orders':get_order(id)
+    }
+    return render(request,'order.html',context)
+
     

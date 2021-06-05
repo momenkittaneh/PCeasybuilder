@@ -57,6 +57,27 @@
     </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<table style="width:100%">
+    <tr>
+      <th>First NameName</th>
+      <th >Last Name</th>
+      <th >Full Name</th>
+
+    </tr>
+    
+    {% for order in orders %}
+    
+
+    <tr>
+      <td>{{order.order_date}}</td>
+      <td>{{order.order_price}}</td>
+      <td>{{order.status}} </td>
+   
+    
+    </tr>
+    {%endfor%}
+  </table>
+
 
 
 

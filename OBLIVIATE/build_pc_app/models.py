@@ -74,8 +74,13 @@ class troublshooting(models.Model):
         return self.name
 
 
-def get_order(id):
-    return cart.objects.filter(user_id=id)
+def get_products():
+    return product.objects.all()
+
+def get_order(id_user):
+    user=users.objects.get(id=id_user)
+    ord=order.objects.filter(user_order=user)
+    return ord
 
 
 def create_order(id):
