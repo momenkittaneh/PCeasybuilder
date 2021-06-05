@@ -72,8 +72,9 @@ class troublshooting(models.Model):
     def __str__(self):
         return self.name
 
+def get_order(id):
+    return cart.objects.filter(user_id=id)
 
 
-
-
-
+# def create_order():
+    
