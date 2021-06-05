@@ -1,0 +1,14 @@
+.order_details{
+    margin-left: 10%;
+
+}
+.ship_address{
+    margin-left: 10%;
+}
+footer{
+    display: flex;
+    justify-content: space-around;
+}
+.contact{width: 20%;}
+.about_us{width: 20%;}
+.our_map{width: 20%;}
