@@ -50,6 +50,7 @@ class order(models.Model):
     order_price= models.IntegerField()
     status=models.ForeignKey(status,related_name="stat",on_delete=CASCADE)
     productorder =models.ManyToManyField(product,through= 'cart')
+    user_order= models.ForeignKey(users,related_name="orders",on_delete=CASCADE)
 
 
 
@@ -76,5 +77,7 @@ def get_order(id):
     return cart.objects.filter(user_id=id)
 
 
-# def create_order():
+# def create_order(id,id_cart):
+        
+
     
