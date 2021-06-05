@@ -3,4 +3,4 @@ from django.shortcuts import render
 
 # Create your views here.
 def index2(reqeust):
-    return HttpResponse("sdfsdfsdfsdf")
+    return render(reqeust,"home.html")

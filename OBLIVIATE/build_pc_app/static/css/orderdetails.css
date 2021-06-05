@@ -12,3 +12,11 @@ footer{
 .contact{width: 20%;}
 .about_us{width: 20%;}
 .our_map{width: 20%;}
+.foot{
+    background-color: #555 !important;
+    color:#aaa;
+    margin-bottom: 0px;
+}
+.between{
+    height: 1000px;
+}
