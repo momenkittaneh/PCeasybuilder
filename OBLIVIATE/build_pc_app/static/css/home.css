@@ -107,3 +107,12 @@ body {
     border: 5px solid #555;
     
 }
+footer{
+    background-color: #555 !important;
+    color:#aaa;
+    margin-bottom: 0px;
+}
+<!-- .between{
+height: auto px;
+
+} -->
