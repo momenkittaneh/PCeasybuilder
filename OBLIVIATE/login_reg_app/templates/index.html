@@ -12,7 +12,7 @@
 <link rel="mask-icon" type="" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111" />
 
 
-  <title>CodePen - Login/Signup Form With Slider</title>
+  <title>login register</title>
   
   
   <link rel='stylesheet' href='https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css'>
@@ -312,21 +312,27 @@ input.form-btn:hover{
     </div>
     
     <div class="form form-signup">
-      <form action="#">
-        <lable>FULL NMAE</lable>
-        <input type="text" 
-               placeholder="Your full name">
+      <form action="/log/register" method="POST">
+        {% csrf_token %}
+        <lable>FIRST NAME</lable>
+        <input type="text" name ="first_name"
+               placeholder="Your first name">
+        <lable>LAST NAME</lable>
+        <input type="text" name="last_name"
+              placeholder="Your last name">
+       
         <lable>E-MAIL</lable>
-        <input type="email" 
+        <input type="email" name="email"
                placeholder="Your e-mail">
         <lable>PASSWORD</lable>
-        <input type="password" 
+        <input type="password" name="password"
                placeholder="Your password">
-        <p class="terms">
-          <input type="checkbox">
-          I agree all statments in 
-          <a href="#" class="lined-link">terms of service</a>
-        </p>
+        <lable>CONFIRM PASSWORD</lable>
+        <input type="password" name="confirm_password"
+              placeholder="confirm password">
+            <input type="phone" name="phone"
+            placeholder="Your phone number">
+       
         <input type="submit"
                class="form-btn"
                value="Sign Up"/>
@@ -336,12 +342,13 @@ input.form-btn:hover{
     </div>
 
     <div class="form form-signin">
-      <form action="#">
+      <form action="/log/login" method="POST">
+        {% csrf_token %}
         <lable>E-MAIL</lable>
-        <input type="email" 
+        <input type="email" name="email"
                placeholder="Your e-mail">
         <lable>PASSWORD</lable>
-        <input type="password" 
+        <input type="password" name="password"
                placeholder="Your password">
         <input type="submit"
                class="form-btn"

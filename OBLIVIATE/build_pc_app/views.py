@@ -1,6 +1,15 @@
 from django.shortcuts import redirect, render
 from .models import *
 
+def home(request):
+    if 'id' in request.session:
+        context= {
+            'log' : True,
+            'getprof': get_user(request.session['id'])
+        }
+        return render(request,"home.html",context)
+    return render(request,"home.html")
+
 def viewcart(request):
     context={
     'cartuser':get_user(request.session['user_id'])
@@ -18,6 +27,6 @@ def confirm(request):
     }
     return render(request,'makeorder.html',context)
 
-# def ok(request):
-#     theorder=create_order(order_price=)
-    
+def ok(request):
+    theorder=create_order(request.session['user_id'])
+    return redirect('/')

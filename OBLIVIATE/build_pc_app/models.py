@@ -56,7 +56,7 @@ class order(models.Model):
 
 
 class cart(models.Model):
-    users_id=models.ForeignKey(users,on_delete=CASCADE)
+    users_id=models.ForeignKey(users,related_name="mycart",on_delete=CASCADE)
     product_id=models.ForeignKey(product,on_delete=CASCADE)
     order_id = models.ForeignKey(order,related_name="cart",on_delete=CASCADE)
     total_price=models.IntegerField()
@@ -73,11 +73,16 @@ class troublshooting(models.Model):
     def __str__(self):
         return self.name
 
+
 def get_order(id):
     return cart.objects.filter(user_id=id)
 
 
-# def create_order(id,id_cart):
-        
+def create_order(id):
+    user= users.objects.get(id=id)
+    det=user.mycart.all()
+    ord = order.objects.create(order_price=det.total_price,user_order=user)
+    return ord
+
 
     
