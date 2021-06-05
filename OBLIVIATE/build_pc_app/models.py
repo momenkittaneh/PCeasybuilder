@@ -19,6 +19,7 @@ class brand(models.Model):
     catbrand= models.ForeignKey(catagory,related_name="brands",on_delete=CASCADE)
     def __str__(self):
         return self.name
+
 class product(models.Model):
     name= models.CharField(max_length=200)
     desc = models.TextField()
@@ -26,11 +27,17 @@ class product(models.Model):
     build_pc =models.ManyToManyField(users,through= 'cart')
     stock =models.IntegerField()
     categ = models.ForeignKey(brand,related_name='prodtype',on_delete= CASCADE)
+    thumb = models.ImageField(blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     def __str__(self):
         return self.name
 
+class postimage(models.Model):
+    post=models.ForeignKey(product,default=None,on_delete=CASCADE)
+    thumb=models.ImageField(upload_to='images/')
+    def __str__(self):
+        return self.post.name
 
 class status(models.Model):
     status= models.CharField(max_length=15)
@@ -42,6 +49,9 @@ class order(models.Model):
     order_date= models.DateField(auto_now_add=True)
     order_price= models.IntegerField()
     status=models.ForeignKey(status,related_name="stat",on_delete=CASCADE)
+    productorder =models.ManyToManyField(product,through= 'cart')
+
+
 
 
 class cart(models.Model):
