@@ -59,22 +59,22 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <div class="myprofile">
-        {{user name}}
-        {{user Email}}
-        {{user phone number}}
+        <p>{{user.first_name}} {{user.last_name}}</p>
+        <p>{{user.email}}</p>
+        <p>{{user.phone}}</p>
     </div>
     <div class="my_address">
-        {%for%}
+        {%for alladd in user.address%}
         <div>
-        {{address state}}<br>
-        {{address city}}<br>
-        {{address street}}<br>
+        {{alladd.state}}<br>
+        {{alladd.city}}<br>
+        {{alladd.street}}<br>
         </div>
         {%endfor%}
 
     </div>
     <div class="add_address">
-        <form action="" method="post">
+        <form action="addaddress/{{user.id}}" method="post">
             <label for="state">state</label>
             <input type="text" name="state" id="state"><br>
             <label for="">city</label>
@@ -83,29 +83,6 @@
             <input type="text" name="street" id="street"><br>
             <input type="submit" value="add address">
         </form>
-    </div>
-
-    <div class="my_trouble">
-        <table class="table">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">problem</th>
-                <th scope="col">statues</th>
-                <th scope="col">action</th>
-              </tr>
-            </thead>
-            <tbody>
-                {%for%}
-                <tr>
-                    <th scope="row">{{loop.counter}}</th>
-                    <td>{{problem name}}</td>
-                    <td>{{problem statues}}</td>
-                    <td><a href="">details</a></td>
-                </tr>
-                {%endfor%}
-            </tbody>
-            </table>
     </div>
     <footer>
         <div class="contact">

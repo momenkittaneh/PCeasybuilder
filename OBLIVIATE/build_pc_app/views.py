@@ -1,3 +1,5 @@
+from OBLIVIATE.login_reg_app.models import get_user
+from django.http import request
 from django.shortcuts import redirect, render
 from .models import *
 
@@ -45,4 +47,14 @@ def proddetails(request,id):
         'det' : get_product(id)
     }
     return render(request,'details.html',context)
-    
+
+def myprofile(request):
+    context ={
+        'log':True,
+        'user' : get_user(request.session['user_id'])
+    }
+    return render(request,'profile.html',context)
+
+def addaddress(request,id):
+    add = addnewaddress(id,request.post['state'],request.post['city'],request.post['street'])
+    return redirect('/profile')

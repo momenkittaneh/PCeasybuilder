@@ -93,3 +93,8 @@ def view_cart(id):
 def get_product(id):
     prod = product.objects.get(id=id)
     return prod
+
+def addnewaddress(id,state,city,street):
+    user = users.objects.get(id=id)
+    adres = address.objects.create(state=state,city=city,street=street,user_id=user)
+    return adres
