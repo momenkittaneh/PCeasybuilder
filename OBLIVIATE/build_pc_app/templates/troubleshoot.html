@@ -5,7 +5,51 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    
+    
 </head>
+<style> 
+form{
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3%;
+}
+.troubleshoot{
+    margin:10px;
+}
+
+.label1{
+    width: 120px;
+
+}
+.input1{
+    border-radius: 10px;
+}
+.navbar navbar-inverse{
+    background-color: blue ; 
+}
+
+.form-select {
+    display: block;
+    width: 18%;
+    padding: .375rem 2.25rem .375rem .75rem;
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-image: url(data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e);
+    background-repeat: no-repeat;
+    background-position: right .75rem center;
+    background-size: 16px 12px;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+</style>
 <body>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">    
 <div class="navbar navbar-inverse">
@@ -61,14 +105,14 @@
 
         {% csrf_token %}
         <br>
-        <label for="first_name">Name:</label>
-        <input type="text" name="first_name">
+        <label class="label1" for="first_name">Name:</label>
+        <input  class="input1" type="text" name="first_name">
         <br><br>
-        <label for="">Phone Number:</label>
-        <input type="text" name="Phone number">
+        <label class="label1" for="">Phone Number:</label>
+        <input class="input1" type="text" name="Phone number">
         <br><br>
         
-        <select id="lang" name="lang">
+        <select class="form-select" name="lang">
         <option value="Java">Java</option>
         <option value="Python">Python</option>
         <option value="C++">C++</option>
@@ -81,10 +125,14 @@
         <input type="radio" id="shipment delayed" name="problem" value="shipment delayed">
         <label for="hipment delayed">hipment delayed</label>
         <br><br>
-        <label for="hipment delayed">desc</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        <div class="form-group">
+            <label for="Description">Description</label>
+            <textarea class="form-control" id="Description" rows="3" ></textarea>
+          </div>
         <br><br>
-        <button type="submit">submit</button>
+        
+        
+        <label class="btn btn-primary" for="btn-check"> Submit Troubleshoot </label>
     </form>
     </div>
 
