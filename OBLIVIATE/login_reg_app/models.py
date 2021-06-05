@@ -41,3 +41,16 @@ class users(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     objects= userModels()
+
+
+def create_user(fname,lname,email,passwd):
+    user =users.objects.create(first_name=fname,last_name=lname,email=email,password=passwd)
+    return user
+
+def get_user(user_id):
+    return users.objects.get(id=user_id)
+
+
+
+def login_user(email):
+    return users.objects.filter(email=email)

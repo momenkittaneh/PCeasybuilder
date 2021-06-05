@@ -50,12 +50,13 @@ class order(models.Model):
     order_price= models.IntegerField()
     status=models.ForeignKey(status,related_name="stat",on_delete=CASCADE)
     productorder =models.ManyToManyField(product,through= 'cart')
+    user_order= models.ForeignKey(users,related_name="orders",on_delete=CASCADE,default=None)
 
 
 
 
 class cart(models.Model):
-    users_id=models.ForeignKey(users,on_delete=CASCADE)
+    users_id=models.ForeignKey(users,related_name="mycart",on_delete=CASCADE)
     product_id=models.ForeignKey(product,on_delete=CASCADE)
     order_id = models.ForeignKey(order,related_name="cart",on_delete=CASCADE)
     total_price=models.IntegerField()
@@ -73,7 +74,27 @@ class troublshooting(models.Model):
         return self.name
 
 
+def get_products():
+    return product.objects.all()
+
+def get_order(id_user):
+    user=users.objects.get(id=id_user)
+    ord=order.objects.filter(user_order=user)
+    return ord
 
 
+def create_order(id):
+    user= users.objects.get(id=id)
+    det=user.mycart.all()
+    ord = order.objects.create(order_price=det.total_price,user_order=user)
+    return ord
 
 
+def view_cart(id):
+    user= users.objects.get(id=id)
+    return user.mycart.all()
+
+
+def get_product(id):
+    prod = product.objects.get(id=id)
+    return prod
