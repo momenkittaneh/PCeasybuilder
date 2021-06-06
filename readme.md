@@ -11,14 +11,22 @@ In order to maximize our customers experience we made a trouble-shoot section in
 
 Main page:
 
-registration
+![image](https://user-images.githubusercontent.com/70633233/120940234-f1897680-c724-11eb-9fd4-0bf791490caa.png)
 
-Log in
 
-Brows the orders
+registration and login:
+![image](https://user-images.githubusercontent.com/70633233/120940281-21387e80-c725-11eb-9298-48130d48b23c.png)
 
-Order details:
+profile page:
+![image](https://user-images.githubusercontent.com/70633233/120940451-0a465c00-c726-11eb-96d3-21433d3957ed.png)
 
-Build pc
+Brows the orders:
+![image](https://user-images.githubusercontent.com/70633233/120940792-ae7cd280-c727-11eb-8e89-5e100be3ba25.png)
 
-Troubleshoot:
+product details:
+![image](https://user-images.githubusercontent.com/70633233/120940858-0adff200-c728-11eb-8957-a3e9a6c32974.png)
+
+Build pc (cart):
+![image](https://user-images.githubusercontent.com/70633233/120940887-36fb7300-c728-11eb-8d1c-f2b26ded0621.png)
+
+link:
