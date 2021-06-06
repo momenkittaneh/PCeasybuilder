@@ -24,7 +24,8 @@ class product(models.Model):
     name= models.CharField(max_length=200)
     desc = models.TextField()
     price = models.IntegerField()
-    build_pc =models.ManyToManyField(users,through= 'cart')
+    build_pc =models.ManyToManyField(users,through= 'cart',related_name="products")
+    orders= models.ManyToManyField('order',through='cart',related_name='products')
     stock =models.IntegerField()
     categ = models.ForeignKey(brand,related_name='prodtype',on_delete= CASCADE)
     thumb = models.ImageField(blank=True)
@@ -58,7 +59,7 @@ class order(models.Model):
 class cart(models.Model):
     users_id=models.ForeignKey(users,related_name="mycart",on_delete=CASCADE)
     product_id=models.ForeignKey(product,on_delete=CASCADE)
-    order_id = models.ForeignKey(order,related_name="cart",on_delete=CASCADE)
+    order_id = models.ForeignKey(order,related_name="cart",on_delete=CASCADE ,default=None)
     total_price=models.IntegerField()
     quantity=models.IntegerField()
 

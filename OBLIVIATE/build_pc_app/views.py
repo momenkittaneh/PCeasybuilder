@@ -74,3 +74,12 @@ def show_details(request,id):
     context = {
         'orddetail' : get_order_details(id)
     }
+
+def  addtocart(request,id):
+    user = get_user(request.session['user_id'])
+    getprod = product.objects.get(id=id)
+    carting = cart.objects.create(users_id=user,product_id=getprod,quantity=1,total_price=getprod.price)
+    return redirect('/cart')
+
+def problem(request):
+    return render(request,"troubleshoot.html")

@@ -54,7 +54,7 @@
 
                             <li><a href="/order">order</a></li>
                             <li><a href="/cart">mybuild</a></li>
-                            <li><a href="/troubeshoot/{{request.session.id}}">troubleshoot</a></li>
+                            <li><a href="/troubeshoot">troubleshoot</a></li>
                         </ul>
                         <ul class="nav navbar-nav">
                             <li>
@@ -121,6 +121,7 @@
         <div class="product">
             {%for prod in product%}
             <div class="product1">
+                <img src="/media/{{prod.thumb}}" alt="">
                 <h4><a href="/details/{{prod.id}}">{{prod.name}}</a></h4>
                 <p>{{prod.price}}$</p>
             </div>
