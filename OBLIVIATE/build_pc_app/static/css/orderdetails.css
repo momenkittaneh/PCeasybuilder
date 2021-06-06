@@ -8,9 +8,6 @@
 footer{
     display: flex;
     justify-content: space-around;
-    bottom:0;
-    position:absolute;
-    width:100% ;
 }
 .contact{width: 20%;}
 .about_us{width: 20%;}
