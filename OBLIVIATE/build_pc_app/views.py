@@ -113,9 +113,11 @@ def problem(request):
 
 
 def showprof(request):
+    user=users.objects.get(id=request.session['user_id']),
+
     Context ={
         'user':users.objects.get(id=request.session['user_id']),
-        'addres':address.objects.all()
+        'addres':address.objects.all().filter(user_id=request.session['user_id'])
     }
     return render(request,'profile.html',Context)
 def removeaddress(request,id):
