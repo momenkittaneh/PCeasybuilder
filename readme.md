@@ -1,7 +1,13 @@
+Groub Name:OBLIVIATE
 
-pythonStack
+
 Title :Build PC 
-Abstract :Our web site Is e-commerce for sale separated PC component so you can buy computer component or build PC with custom specifications ,in order of that the website makes the search process easier by showing a list of fully built PC or customized specifications. The website will deliver customer’s order make it ready to use, the website distinguish by deliver the order in a short period of no more than two days and give a warranty depend on the selected parts, if the customer faced any problem or when a malfunction occurs so the customer can report in troubleshoot section then the website team will contact with the customer. our website contain these pages and their functionalities:
+
+
+Abstract :
+Our project is an e-commerce website, dedicated to sell PC components, our website also gives an option of building a custom PC with the components we provide. On our website the client is able to view our wide variety of products, which are as mentioned individually sold PC components or a customized computer based on his wishes.
+Our website will provide fast delivery services anywhere in the country, we believe that our customer will receive his order within two days. In the unlikely event of a malfunction, our customer will receive a warranty for the products he purchases, however the time of the warranty varies based on the type of product.
+In order to maximize our customers experience we made a trouble-shoot section in our website that deals with the after-sales services, the customor can contact us in any time if he have further inquires or problems regarding any of our products
 
 Main page:
 
