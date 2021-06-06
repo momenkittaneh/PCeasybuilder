@@ -1,4 +1,4 @@
-
+Groub Name:OBLIVIATE
 Title :Build PC 
 Abstract :
 Our project is an e-commerce website, dedicated to sell PC components, our website also gives an option of building a custom PC with the components we provide. On our website the client is able to view our wide variety of products, which are as mentioned individually sold PC components or a customized computer based on his wishes.
