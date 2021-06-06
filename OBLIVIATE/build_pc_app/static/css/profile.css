@@ -24,7 +24,6 @@ footer{
 { width: 10%;}
 .about_us{width: 10%;}
 .contact{width: 10%;}
-
 .foot{
     background-color: #555 !important;
     color:#aaa;
@@ -33,4 +32,11 @@ footer{
 .between{
     height: auto px;
 }
-    
+footer{
+    background-color: #555 !important;
+    color:#aaa;
+    margin-bottom: 0px;
+    bottom:0;
+    position:absolute;
+    width:100% ;
+}

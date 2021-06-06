@@ -14,3 +14,15 @@ width: 50%;
 .between{
     height: 1000px;
 }
+footer{
+    background-color: #555 !important;
+    color:#aaa;
+    margin-bottom: 0px;
+    bottom:0;
+    position:absolute;
+    width:100% ;
+}
+<!-- .between{
+height: auto ;
+
+} 
