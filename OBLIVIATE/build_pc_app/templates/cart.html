@@ -74,14 +74,14 @@
 <div class="cart">
     <form action="/makeorder" method="post">
     {%for all in myitems%}
-    <img src="" alt="">
+    <img src="/media/{{all.product_id.thumb}}" alt="" style="width: 150px; height: 150px;">
     <p>product name:{{all.product_id.name}} </p>
+
     <form action="/addquantity/{{all.id}}" method="post">
+        {% csrf_token %}
         <input type="number" name="quantity" min="1" max="10" value="{{all.quantity}}">
         <input type="submit" value="add">
     </form>
-    <p>product price:{{all.product_id.price * all.quantity}}</p>
-    <p>product details:{{all.product_id.desc}}</p>
     {%endfor%}
     </form>
 </div>

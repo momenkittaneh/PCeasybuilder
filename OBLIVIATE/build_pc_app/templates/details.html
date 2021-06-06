@@ -8,6 +8,18 @@
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/details.css' %}">
     <link rel="stylesheet" href="/static/css/details.css">
+<<<<<<< HEAD
+=======
+    
+    
+    
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css'>
+    <link rel='stylesheet' href='https://www.insightindia.com/mcss/icon-font.css'>
+    
+>>>>>>> e8e5573c75fe84e845559e55571e9749f1639342
 </head>
 
 <body>
@@ -95,16 +107,28 @@
           <div class="row">
             <div class="col-md-8 mx-auto">
          <!-- Product Images & Alternates -->
+
                 <div class="product-images demo-gallery">
                   <!-- Begin Product Images Slider -->
+
                   <div class="main-img-slider">
-                     <a data-fancybox="gallery" href="/media/{{det.thumb}}"><img src="/media/{{det.thumb}}" class="img-fluid"></a>
-                  </div>
+                    <a data-fancybox="gallery" href="/media/{{det.thumb}}"><img src="/media/{{det.thumb}}" class="img-fluid" style="width: 100%;height: 100%;"></a>
+
+                             {%for photo in det.prodpic.all%}
+                     <a data-fancybox="gallery" href="/media/{{photo.thumb}}"><img src="/media/{{photo.thumb}}" class="img-fluid" style="width: 100%; height: 100%;"></a>
+                                  {%endfor%}
+                                </div>
                 <!-- End Product Images Slider -->
-              
+               
+
                 <!-- Begin product thumb nav -->
                 <ul class="thumb-nav">
                   <li><img src="/media/{{det.thumb}}" style="width: 72px;height: 50px;"></li>
+                  {%for photo in det.prodpic.all%}
+
+                  <li><img src="/media/{{photo.thumb}}" style="width: 72px;height: 50px;"></li>
+                  {%endfor%}
+
                 </ul>
                 <!-- End product thumb nav -->
               </div>
@@ -113,9 +137,11 @@
             </div>
           </div>
         </div>
+
       </section>
-    
-    </section>
+
+
+  </section>
     <p>{{det.name}}</p>
     <p>{{det.price}} $</p>
     <p>{{det.desc}}</p>
