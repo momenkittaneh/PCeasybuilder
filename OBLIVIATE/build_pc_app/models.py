@@ -35,7 +35,7 @@ class product(models.Model):
         return self.name
 
 class postimage(models.Model):
-    post=models.ForeignKey(product,default=None,on_delete=CASCADE , related_name="prodpic")
+    post=models.ForeignKey(product,null=True,on_delete=CASCADE , related_name="prodpic")
     thumb=models.ImageField(upload_to='images/')
     def __str__(self):
         return self.post.name
@@ -51,7 +51,7 @@ class order(models.Model):
     order_price= models.IntegerField()
     status=models.ForeignKey(status,related_name="stat",on_delete=CASCADE)
     productorder =models.ManyToManyField(product,through= 'cart')
-    user_order= models.ForeignKey(users,related_name="orders",on_delete=CASCADE,default=None)
+    user_order= models.ForeignKey(users,related_name="orders",on_delete=CASCADE,null=True)
 
 
 
@@ -59,20 +59,20 @@ class order(models.Model):
 class cart(models.Model):
     users_id=models.ForeignKey(users,related_name="mycart",on_delete=CASCADE)
     product_id=models.ForeignKey(product,on_delete=CASCADE)
-    order_id = models.ForeignKey(order,related_name="cart",on_delete=CASCADE ,default=None)
+    order_id = models.ForeignKey(order,related_name="cart",on_delete=CASCADE ,null=True)
     total_price=models.IntegerField()
     quantity=models.IntegerField()
 
 
 
-class troublshooting(models.Model):
-    name=models.CharField(max_length=200) #name of problem
-    desc = models.TextField()
-    phone = models.CharField(max_length=200)
-    order_id=models.ForeignKey(order,related_name="troubleshoot",on_delete=CASCADE)
-    created_at = models.DateTimeField(auto_now_add=True)
-    def __str__(self):
-        return self.name
+# class troublshooting(models.Model):
+#     name=models.CharField(max_length=200) #name of problem
+#     desc = models.TextField()
+#     phone = models.CharField(max_length=200)
+#     order_id=models.ForeignKey(order,related_name="troubleshoot",on_delete=CASCADE)
+#     created_at = models.DateTimeField(auto_now_add=True)
+#     def __str__(self):
+#         return self.name
 
 
 def get_products():

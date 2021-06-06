@@ -10,7 +10,7 @@ admin.site.register(brand)
 
 admin.site.register(status)
 admin.site.register(order)
-admin.site.register(troublshooting)
+# admin.site.register(troublshooting)
 
 
 @admin.register(product)
