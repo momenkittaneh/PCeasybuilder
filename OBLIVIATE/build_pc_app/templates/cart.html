@@ -30,7 +30,6 @@
 
                         <li><a href="/order">order</a></li>
                         <li><a href="/cart">mybuild</a></li>
-                        <li><a href="/troubeshoot/{{request.session.id}}">troubleshoot</a></li>
                     </ul>
                     <ul class="nav navbar-nav">
                         <li>
@@ -73,16 +72,13 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <div class="cart">
     <form action="/makeorder" method="post">
+        {% csrf_token %}
     {%for all in myitems%}
     <img src="/media/{{all.product_id.thumb}}" alt="" style="width: 150px; height: 150px;">
     <p>product name:{{all.product_id.name}} </p>
-
-    <form action="/addquantity/{{all.id}}" method="post">
-        {% csrf_token %}
-        <input type="number" name="quantity" min="1" max="10" value="{{all.quantity}}">
-        <input type="submit" value="add">
-    </form>
+    <p>product proce" {{all.product_id.price}}</p>
     {%endfor%}
+    <input type="submit" value="buy items">
     </form>
 </div>
 <footer>

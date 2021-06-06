@@ -48,7 +48,6 @@ class status(models.Model):
 
 class order(models.Model):
     order_date= models.DateField(auto_now_add=True)
-    order_price= models.IntegerField()
     status=models.ForeignKey(status,related_name="stat",on_delete=CASCADE)
     productorder =models.ManyToManyField(product,through= 'cart')
     user_order= models.ForeignKey(users,related_name="orders",on_delete=CASCADE,null=True)
@@ -60,7 +59,6 @@ class cart(models.Model):
     users_id=models.ForeignKey(users,related_name="mycart",on_delete=CASCADE)
     product_id=models.ForeignKey(product,on_delete=CASCADE)
     order_id = models.ForeignKey(order,related_name="cart",on_delete=CASCADE ,null=True)
-    total_price=models.IntegerField()
     quantity=models.IntegerField()
 
 
@@ -83,11 +81,15 @@ def get_order(user_id):
     ord=order.objects.filter(user_order=user)
     return ord
 
+def get_cart(user_id):
+    user=users.objects.get(id=user_id)
+    ord=cart.objects.filter(users_id=user)
+    return ord
 
 def create_order(id):
     user= users.objects.get(id=id)
-    det=user.mycart.all()
-    ord = order.objects.create(order_price=det.total_price,user_order=user)
+    ord = order.objects.create(user_order=user,status=status.objects.first())
+    
     return ord
 
 
@@ -113,3 +115,6 @@ def update_quantity(id,quantity):
 
 def get_order_details(id):
     return order.object.get(id=id)
+
+def filter_products(new):
+    return catagory.objects.filter(new)

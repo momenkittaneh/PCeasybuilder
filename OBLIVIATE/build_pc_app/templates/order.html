@@ -29,7 +29,6 @@
 
                         <li><a href="/order">order</a></li>
                         <li><a href="/cart">mybuild</a></li>
-                        <li><a href="/troubeshoot/{{request.session.id}}">troubleshoot</a></li>
                     </ul>
                     <ul class="nav navbar-nav">
                         <li>
@@ -72,9 +71,10 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <table style="width:100%">
     <tr>
-      <th>First NameName</th>
-      <th >Last Name</th>
-      <th >Full Name</th>
+      <th>date</th>
+      <th >product name</th>
+      <th >product price</th>
+      <th >product status</th>
       <th>action</th>
 
     </tr>
@@ -84,9 +84,10 @@
 
     <tr>
       <td>{{order.order_date}}</td>
-      <td>{{order.order_price}}</td>
+      <td>{{order.productorder.name}}</td>
+      <td>{{order.productorder.price}}</td>
       <td>{{order.status}} </td>
-      <td><a href="/details/{{order.id}}">details</a></td>
+      <td><a href="/orderdetails/{{order.id}}">details</a></td>
    
     
     </tr>

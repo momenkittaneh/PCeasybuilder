@@ -48,7 +48,11 @@ def create_user(fname,lname,email,passwd):
     return user
 
 def get_user(user_id):
-    return users.objects.get(id=user_id)
+    try:
+        return users.objects.get(id=user_id)
+    except Exception as e:
+        print(str(e))
+        return None
 
 
 

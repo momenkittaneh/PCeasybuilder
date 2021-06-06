@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     {% load static %}
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/orderdetails.css') }}">
     <style>
         .foot{
             background-color: #555 !important;
@@ -40,7 +39,6 @@
 
                             <li><a href="/order">order</a></li>
                             <li><a href="/cart">mybuild</a></li>
-                            <li><a href="/troubeshoot/{{request.session.id}}">troubleshoot</a></li>
                         </ul>
                         <ul class="nav navbar-nav">
                             <li>
@@ -82,8 +80,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <div class="order">
-        {{orddetail.order_date}}
-    {%for myorder in orddetail%}
+        
+        {{det.order_date}}
+    {%for myorder in det%}
         <div class="order_details">
             <p>{{myorder.productorder.name}}</p>
             <p>{{myorder.order_price}}</p>
