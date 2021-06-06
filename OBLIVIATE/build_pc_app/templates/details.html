@@ -6,65 +6,124 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'css//details.css' %}">
+    <link rel="stylesheet" href="{% static 'css/details.css' %}">
+    <link rel="stylesheet" href="/static/css/details.css">
 </head>
+
 <body>
+<script>
+  
+
+  window.console = window.console || function(t) {};
+</script>
+
+  
+  
+  <script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage("resize", "*");
+  }
+  </script>
+
+
 <main>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">    
   <div class="navbar navbar-inverse">
-          <div class="container-fluid">
-              <div class="row">
-                  <div class="col-lg-12">
-  
-                      <div class="navbar-header">
-                          <button class="navbar-toggle" data-target="#mobile_menu" data-toggle="collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-                          <a href="#" class="navbar-brand">easybuild</a>
-                      </div>
-  
-                      <div class="navbar-collapse collapse" id="mobile_menu">
-                          <ul class="nav navbar-nav">
-                              <li><a href="#">Home</a></li>
-  
-                              <li><a href="#">order</a></li>
-                              <li><a href="#">mybuild</a></li>
-                              <li><a href="#">troubleshoot</a></li>
-                          </ul>
-                          <ul class="nav navbar-nav">
-                              <li>
-                                  <form action="" class="navbar-form">
-                                      <div class="form-group">
-                                          <div class="input-group">
-                                              <input type="search" name="search" id="" placeholder="Search Anything Here..." class="form-control">
-                                              <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
-                                          </div>
-                                      </div>
-                                  </form>
-                              </li>
-                          </ul>
-  
-                          <ul class="nav navbar-nav navbar-right">
-                              <li><a href="#"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
-                              <li><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-log-in"></span> Login / Sign Up <span class="caret"></span></a>
-                                  <ul class="dropdown-menu">
-                                      <li><a href="#">Login</a></li>
-                                      <li><a href="#">Sign Up</a></li>
-                                  </ul>
-                              </li>
-                          </ul>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+
+                <div class="navbar-header">
+                    <button class="navbar-toggle" data-target="#mobile_menu" data-toggle="collapse"><span
+                            class="icon-bar"></span><span class="icon-bar"></span><span
+                            class="icon-bar"></span></button>
+                    <a href="/" class="navbar-brand">easybuild</a>
+                </div>
+
+                <div class="navbar-collapse collapse" id="mobile_menu">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="/">Home</a></li>
+
+                        <li><a href="/order">order</a></li>
+                        <li><a href="/cart">mybuild</a></li>
+                        <li><a href="/troubeshoot/{{request.session.id}}">troubleshoot</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <form action="" class="navbar-form">
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <input type="search" name="search" id=""
+                                            placeholder="Search Anything Here..." class="form-control">
+                                        <span class="input-group-addon"><span
+                                                class="glyphicon glyphicon-search"></span></span>
+                                    </div>
+                                </div>
+                            </form>
+                        </li>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+                        <li><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span
+                            {%if log%}
+                            class="glyphicon glyphicon-log-in"></span> welcome {{getprof.first_name}} <span
+                            class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/log/logout">Logout</a></li>
+                            {%else%}
+                                    class="glyphicon glyphicon-log-in"></span> Login / Sign Up <span
+                                    class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/log">Login</a></li>
+                            {%endif%}
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <div class="product_detail">
-    <img src="" alt="">
-    {{product image}}
-    {{product name}}
-    {{product price}}
-    {{product description}}
+    <section>
+
+      <section id="detail">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-8 mx-auto">
+         <!-- Product Images & Alternates -->
+                <div class="product-images demo-gallery">
+                  <!-- Begin Product Images Slider -->
+                  <div class="main-img-slider">
+                     <a data-fancybox="gallery" href="/media/{{det.thumb}}"><img src="/media/{{det.thumb}}" class="img-fluid"></a>
+                  </div>
+                <!-- End Product Images Slider -->
+              
+                <!-- Begin product thumb nav -->
+                <ul class="thumb-nav">
+                  <li><img src="/media/{{det.thumb}}" style="width: 72px;height: 50px;"></li>
+                </ul>
+                <!-- End product thumb nav -->
+              </div>
+              <!-- End Product Images & Alternates -->
+              
+            </div>
+          </div>
+        </div>
+      </section>
+    
+    </section>
+    <p>{{det.name}}</p>
+    <p>{{det.price}} $</p>
+    <p>{{det.desc}}</p>
   </div>
+  <form action="/addtocart/{{det.id}}" method="post">
+    {% csrf_token %}
+  <input type="submit" value="addtocart">
+  </form>
 </main>
 <div class='between'>
 </div>
@@ -116,5 +175,58 @@
     </div>
 </footer>
 </footer>
+<script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-8216c69d01441f36c0ea791ae2d4469f0f8ff5326f00ae2d00e4bb7d20e24edb.js"></script>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.0.1/jquery-migrate.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/popper.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js'></script>
+    <script id="rendered-js" >
+
+// Main/Product image slider for product page
+$('#detail .main-img-slider').slick({
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  infinite: true,
+  arrows: true,
+  fade: true,
+  autoplay: true,
+  autoplaySpeed: 4000,
+  speed: 300,
+  lazyLoad: 'ondemand',
+  asNavFor: '.thumb-nav',
+  prevArrow: '<div class="slick-prev"><i class="i-prev"></i><span class="sr-only sr-only-focusable">Previous</span></div>',
+  nextArrow: '<div class="slick-next"><i class="i-next"></i><span class="sr-only sr-only-focusable">Next</span></div>' });
+
+// Thumbnail/alternates slider for product page
+$('.thumb-nav').slick({
+  slidesToShow: 4,
+  slidesToScroll: 1,
+  infinite: true,
+  centerPadding: '0px',
+  asNavFor: '.main-img-slider',
+  dots: false,
+  centerMode: false,
+  draggable: true,
+  speed: 200,
+  focusOnSelect: true,
+  prevArrow: '<div class="slick-prev"><i class="i-prev"></i><span class="sr-only sr-only-focusable">Previous</span></div>',
+  nextArrow: '<div class="slick-next"><i class="i-next"></i><span class="sr-only sr-only-focusable">Next</span></div>' });
+
+
+
+//keeps thumbnails active when changing main image, via mouse/touch drag/swipe
+$('.main-img-slider').on('afterChange', function (event, slick, currentSlide, nextSlide) {
+  //remove all active class
+  $('.thumb-nav .slick-slide').removeClass('slick-current');
+  //set active class for current slide
+  $('.thumb-nav .slick-slide:not(.slick-cloned)').eq(currentSlide).addClass('slick-current');
+});
+//# sourceURL=pen.js
+    </script>
+
+
 </body>
 </html>

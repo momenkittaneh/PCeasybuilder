@@ -24,7 +24,8 @@ class product(models.Model):
     name= models.CharField(max_length=200)
     desc = models.TextField()
     price = models.IntegerField()
-    build_pc =models.ManyToManyField(users,through= 'cart')
+    build_pc =models.ManyToManyField(users,through= 'cart',related_name="products")
+    orders= models.ManyToManyField('order',through='cart',related_name='products')
     stock =models.IntegerField()
     categ = models.ForeignKey(brand,related_name='prodtype',on_delete= CASCADE)
     thumb = models.ImageField(blank=True)
@@ -58,7 +59,7 @@ class order(models.Model):
 class cart(models.Model):
     users_id=models.ForeignKey(users,related_name="mycart",on_delete=CASCADE)
     product_id=models.ForeignKey(product,on_delete=CASCADE)
-    order_id = models.ForeignKey(order,related_name="cart",on_delete=CASCADE)
+    order_id = models.ForeignKey(order,related_name="cart",on_delete=CASCADE ,default=None)
     total_price=models.IntegerField()
     quantity=models.IntegerField()
 
@@ -77,8 +78,8 @@ class troublshooting(models.Model):
 def get_products():
     return product.objects.all()
 
-def get_order(id_user):
-    user=users.objects.get(id=id_user)
+def get_order(user_id):
+    user=users.objects.get(id=user_id)
     ord=order.objects.filter(user_order=user)
     return ord
 
@@ -98,3 +99,17 @@ def view_cart(id):
 def get_product(id):
     prod = product.objects.get(id=id)
     return prod
+
+def addnewaddress(id,state,city,street):
+    user = users.objects.get(id=id)
+    adres = address.objects.create(state=state,city=city,street=street,user_id=user)
+    return adres
+
+def update_quantity(id,quantity):
+    newcart= cart.objects.get(id=id)
+    newcart.quantity= quantity
+    newcart.save()
+    return newcart
+
+def get_order_details(id):
+    return order.object.get(id=id)

@@ -1,3 +1,4 @@
+from django.http import request
 from django.shortcuts import redirect, render
 from .models import *
 
@@ -20,6 +21,7 @@ def viewcart(request):
 
 
 def makeorder(request):
+
     return redirect('/confirmorder')
 
 def confirm(request):
@@ -48,10 +50,36 @@ def proddetails(request,id):
     }
     return render(request,'details.html',context)
 
-def order_view(request,id):
+def myprofile(request):
+    context ={
+        'log':True,
+        'user' : get_user(request.session['user_id'])
+    }
+    return render(request,'profile.html',context)
+
+def addaddress(request,id):
+    add = addnewaddress(id,request.post['state'],request.post['city'],request.post['street'])
+    return redirect('/profile')
+def order_view(request):
     context={
-        'orders':get_order(id)
+        'orders':get_order(request.session['user_id'])
     }
     return render(request,'order.html',context)
 
-    
+def addquantity(request,id):
+    cart = update_quantity(id,request.POST['quantity'])
+    return redirect('/cart')
+
+def show_details(request,id):
+    context = {
+        'orddetail' : get_order_details(id)
+    }
+
+def  addtocart(request,id):
+    user = get_user(request.session['user_id'])
+    getprod = product.objects.get(id=id)
+    carting = cart.objects.create(users_id=user,product_id=getprod,quantity=1,total_price=getprod.price)
+    return redirect('/cart')
+
+def problem(request):
+    return render(request,"troubleshoot.html")

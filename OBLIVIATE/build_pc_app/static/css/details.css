@@ -171,3 +171,100 @@ height: 1000px;
 footer{
     background-color: #555 !important;
 }
+footer{
+    background-color: #555 !important;
+    color:#aaa;
+    margin-bottom: 0px;
+}
+.between{
+height: 1000px;
+}
+.slick-slider .slick-prev, .slick-slider .slick-next {
+    z-index: 100;
+    font-size: 2.5em;
+    height: 40px;
+    width: 40px;
+    margin-top: -20px;
+    color: #B7B7B7;
+    position: absolute;
+    top: 50%;
+    text-align: center;
+    color: #000;
+    opacity: .3;
+    transition: opacity .25s;
+    cursor: pointer;
+}
+.slick-slider .slick-prev:hover, .slick-slider .slick-next:hover {
+opacity: .65;
+}
+.slick-slider .slick-prev {
+left: 0;
+}
+.slick-slider .slick-next {
+right: 0;
+}
+
+#detail .product-images {
+width: 100%;
+margin: 0 auto;
+border:1px solid #eee;
+}
+#detail .product-images li, #detail .product-images figure, #detail .product-images a, #detail .product-images img {
+display: block;
+outline: none;
+border: none;
+}
+#detail .product-images .main-img-slider figure {
+margin: 0 auto;
+padding: 0 2em;
+}
+#detail .product-images .main-img-slider figure a {
+cursor: pointer;
+cursor: -webkit-zoom-in;
+cursor: -moz-zoom-in;
+cursor: zoom-in;
+}
+#detail .product-images .main-img-slider figure a img {
+width: 100%;
+max-width: 400px;
+margin: 0 auto;
+}
+#detail .product-images .thumb-nav {
+margin: 0 auto;
+padding:20px 10px;
+max-width: 600px;
+}
+#detail .product-images .thumb-nav.slick-slider .slick-prev, #detail .product-images .thumb-nav.slick-slider .slick-next {
+font-size: 1.2em;
+height: 20px;
+width: 26px;
+margin-top: -10px;
+}
+#detail .product-images .thumb-nav.slick-slider .slick-prev {
+margin-left: -30px;
+}
+#detail .product-images .thumb-nav.slick-slider .slick-next {
+margin-right: -30px;
+}
+#detail .product-images .thumb-nav li {
+display: block;
+margin: 0 auto;
+cursor: pointer;
+}
+#detail .product-images .thumb-nav li img {
+display: block;
+width: 100%;
+max-width: 75px;
+margin: 0 auto;
+border: 2px solid transparent;
+-webkit-transition: border-color .25s;
+-ms-transition: border-color .25s;
+-moz-transition: border-color .25s;
+transition: border-color .25s;
+}
+#detail .product-images .thumb-nav li:hover, #detail .product-images .thumb-nav li:focus {
+border-color: #999;
+}
+#detail .product-images .thumb-nav li.slick-current img {
+border-color: #d12f81;
+}
