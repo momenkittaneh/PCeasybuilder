@@ -35,7 +35,7 @@ class product(models.Model):
         return self.name
 
 class postimage(models.Model):
-    post=models.ForeignKey(product,default=None,on_delete=CASCADE)
+    post=models.ForeignKey(product,default=None,on_delete=CASCADE , related_name="prodpic")
     thumb=models.ImageField(upload_to='images/')
     def __str__(self):
         return self.post.name
