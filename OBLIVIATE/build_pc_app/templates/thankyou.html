@@ -67,7 +67,19 @@
         </div>
             <h1>THANK you for purchease</h1>
             <h2>one of our employees will contact you soon for confirm</h2>
-
+            <p>your order is:</p>
+            <table>
+                {%for all in myitems%}
+                <tr><img src="/media/{{all.product_id.thumb}}" alt="" style="width: 150px; height: 150px;"></tr>
+                <tr><p>product name:{{all.product_id.name}} </p></tr>
+                <tr><p>product price: {{all.product_id.price}}</p></tr>
+                {%endfor%}
+            
+                
+            </table>
+                <form action="/" method="post">
+                    {% csrf_token %}
+                <input type="submit" value="return home"></form>
             <footer>
                 <!-- Site footer -->
                 <footer class="site-footer">

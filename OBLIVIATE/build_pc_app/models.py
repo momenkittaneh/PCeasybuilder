@@ -7,7 +7,7 @@ class address(models.Model):
     state=models.CharField(max_length=200) #name of problem
     city = models.CharField(max_length=200)
     street = models.CharField(max_length=200)
-    user_id=models.ForeignKey(users,related_name="address",on_delete=CASCADE)
+    user_id=models.ForeignKey(users,related_name="addr",on_delete=CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
 
 class catagory(models.Model):

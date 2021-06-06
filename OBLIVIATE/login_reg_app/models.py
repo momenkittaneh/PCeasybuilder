@@ -9,8 +9,6 @@ class userModels(models.Manager):
             errors["last_name"] = "last name should be at least 2 characters and contains only characters"
         if len(postData['password']) < 8:
             errors["password"] = "password should be more than 8 characters atleast"
-        if len(postData['phone']) != 10:
-            errors["phone"] = "Phone number must be more than 10 number"
         EMAIL_REGEX = re.compile(
             r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
         # test whether a field matches the pattern

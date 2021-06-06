@@ -1,4 +1,5 @@
-from django.http import request
+from typing import ContextManager
+from django.http import request,JsonResponse
 from django.shortcuts import redirect, render
 from .models import *
 
@@ -48,7 +49,7 @@ def confirm(request):
 
 def ok(request):
     theorder=create_order(request.session['user_id'])
-    return redirect('/')
+    return redirect('/thank')
 
 def mycart(request):
     if 'user_id' in request.session:
@@ -77,8 +78,8 @@ def myprofile(request):
         return render(request,'profile.html',context)
     return redirect('/log')
 
-def addaddress(request,id):
-    add = addnewaddress(id,request.post['state'],request.post['city'],request.post['street'])
+def addaddress(request):
+    add = addnewaddress(request.session['user_id'],request.POST['state'],request.POST['city'],request.POST['street'])
     return redirect('/profile')
 def order_view(request):
     if 'user_id' in request.session:
@@ -109,3 +110,22 @@ def  addtocart(request,id):
 
 def problem(request):
     return render(request,"troubleshoot.html")
+
+
+def showprof(request):
+    Context ={
+        'user':users.objects.get(id=request.session['user_id']),
+        'addres':address.objects.all()
+    }
+    return render(request,'profile.html',Context)
+def removeaddress(request,id):
+    car= cart.objects.get(id=id)
+    car.delete()
+    return redirect('/cart')
+
+def thanks(request):
+    mycart = view_cart(request.session['user_id'])
+    context= {
+        "myitems": mycart
+    }
+    return render(request,'thankyou.html',context)

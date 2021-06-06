@@ -70,15 +70,32 @@
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<div class="cart">
+<div class="cart" style="height: auto;">
     <form action="/makeorder" method="post">
         {% csrf_token %}
-    {%for all in myitems%}
-    <img src="/media/{{all.product_id.thumb}}" alt="" style="width: 150px; height: 150px;">
-    <p>product name:{{all.product_id.name}} </p>
-    <p>product proce" {{all.product_id.price}}</p>
-    {%endfor%}
-    <input type="submit" value="buy items">
+        <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>image</th>
+                <th>prod name</th>
+                <th>prod price</th>
+                <th>action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                {%for all in myitems%}
+                <td><img src="/media/{{all.product_id.thumb}}" alt="" style="width: 150px; height: 150px;"></td>
+                <td>{{all.product_id.name}}</td>
+                <td>{{all.product_id.price}}</td>    
+                <td><a href="/remove/{{all.id}}">remove from cart</a></td>
+            </tr>
+            {%endfor%}
+            <tbody>
+            
+        </tbody>
+            
+        </table>    <input type="submit" value="buy items">
     </form>
 </div>
 <footer>

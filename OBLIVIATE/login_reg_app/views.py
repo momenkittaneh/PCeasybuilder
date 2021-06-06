@@ -18,15 +18,14 @@ def register(request):
     last_name=request.POST['last_name']
     email=request.POST['email']
     password=request.POST['password']
-    confirm_password=request.POST['confirm_password']
-    if password == confirm_password:
-        pw_hash = bcrypt.hashpw(password.encode(), bcrypt.gensalt()).decode()
-        user = create_user(first_name,last_name,email,pw_hash)
-    if user:
-        request.session['user_id'] = user.id
-        request.session['first_name'] = user.first_name
-        request.session['last_name'] = user.last_name
-    return redirect('/')
+    pw_hash = bcrypt.hashpw(password.encode(), bcrypt.gensalt()).decode()
+    logged_user = users.objects.create(first_name=first_name,last_name=last_name,email=email,password=pw_hash)
+    if logged_user:
+        request.session['user_id'] = logged_user.id
+        request.session['first_name'] = logged_user.first_name
+        request.session['last_name'] = logged_user.last_name
+        return redirect('/profile')
+    
 def login(request):
     user = login_user(request.POST['email'])
     if user: 

@@ -49,17 +49,10 @@
                         <ul class="nav navbar-nav navbar-right">
                             <li><a href="#"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
                             <li><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span
-                                {%if log%}
-                                class="glyphicon glyphicon-log-in"></span> welcome {{getprof.first_name}} <span
+                                class="glyphicon glyphicon-log-in"></span> welcome {{user.first_name}} <span
                                 class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="/log/logout">Logout</a></li>
-                                {%else%}
-                                        class="glyphicon glyphicon-log-in"></span> Login / Sign Up <span
-                                        class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="/log">Login</a></li>
-                                {%endif%}
                                 </ul>
                             </li>
                         </ul>
@@ -70,33 +63,42 @@
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <center>
     <div class="myprofile">
         <p>{{user.first_name}} {{user.last_name}}</p>
         <p>{{user.email}}</p>
         <p>{{user.phone}}</p>
     </div>
-    <div class="my_address">
-        {%for alladd in user.address%}
-        <div>
-        {{alladd.state}}<br>
-        {{alladd.city}}<br>
-        {{alladd.street}}<br>
+    <p>your address:</p><br>
+           
+        </center>
+        <center>
+     {%for all in addres%}
+        <div style="border: solid 1px black; width: 300px;">
+        <p>{{all.state}}</p>
+        <p>{{all.city}}</p>
+        <p>{{all.street}}</p>
         </div>
+        <br>
         {%endfor%}
-
+    </center>
     </div>
     <div class="add_address">
-        <form action="addaddress/{{user.id}}" method="post">
-            <label for="state">state</label>
-            <input type="text" name="state" id="state"><br>
-            <label for="">city</label>
-            <input type="text" name="city" id="city"><br>
-            <label for="">street</label>
-            <input type="text" name="street" id="street"><br>
-            <input type="submit" value="add address">
+        <form action="/addaddress" method="post">
+            {%csrf_token%}
+            <table>
+            <tr><td><label for="state">state</label></td>
+            <td><input type="text" name="state" id="state"></td></tr><br>
+            <tr><td><label for="">city</label></td>
+           <td> <input type="text" name="city" id="city"></td></tr><br>
+            <tr><td><label for="">street</label></td>
+            <td><input type="text" name="street" id="street"></td></tr><br><br>
+        </table>
+        <br><br>
+            <input type="submit" value="add address" style="margin-left: 40%;">
         </form>
     </div>
-    <div class='between'></div>
+    <div class='between' style="height: 500px;"></div>
     <footer>
         <!-- Site footer -->
         <footer class="site-footer">
